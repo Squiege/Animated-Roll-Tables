@@ -1,0 +1,13 @@
+{
+  "id": "animated-roll-tables",
+  "title": "Animated Roll Tables",
+  "description": "A module that animates roll tables like a CS:GO case opening.",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "esmodules": ["scripts/main.js"],
+  "styles": ["styles/styles.css"],
+  "packs": [],
+  "languages": [],
+  "dependencies": [],
+  "manifest": "modules/animated-roll-tables/module.json"
+}
