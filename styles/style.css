@@ -1,0 +1,21 @@
+.roll-container {
+    width: 500px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #fff;
+    background: #111;
+}
+
+.roll-strip {
+    display: flex;
+    position: absolute;
+    transition: transform 5s ease-out;
+}
+
+.roll-strip img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 10px;
+}

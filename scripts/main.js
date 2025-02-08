@@ -32,3 +32,13 @@ Hooks.on("chatMessage", (chatLog, messageText) => {
     }
 });
 
+
+// Module Snippets
+
+// Adds a button inside the roll table UI
+Hooks.on("renderRollTableConfig", (app, html, data) => {
+    let button = $(`<button class="animated-roll-btn">🎰 Animate Roll</button>`);
+    button.on("click", () => startAnimatedRoll(app.object));
+    html.append(button);
+});
+
