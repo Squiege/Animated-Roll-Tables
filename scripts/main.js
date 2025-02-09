@@ -1,7 +1,12 @@
+import { startAnimatedRoll } from "./scripts/animation.js";
+
+
+
 // Initialize module
 Hooks.on("ready", () => {
     console.log("My Awesome Module is loaded!");
 });
+console.log("✅ main.js is loading...");
 
 // EXAMPLES
 
@@ -37,8 +42,18 @@ Hooks.on("chatMessage", (chatLog, messageText) => {
 
 // Adds a button inside the roll table UI
 Hooks.on("renderRollTableConfig", (app, html, data) => {
+    // Find the footer area of the settings window
+    let footer = html.find(".sheet-footer");
+    if (footer.length === 0) {
+        footer = html; // Fallback if no footer is found
+    }
+
     let button = $(`<button class="animated-roll-btn">🎰 Animate Roll</button>`);
     button.on("click", () => startAnimatedRoll(app.object));
-    html.append(button);
+
+    // Append the button inside the footer instead of the whole window
+    footer.append(button);
 });
 
+
+console.log("main.js has loaded");

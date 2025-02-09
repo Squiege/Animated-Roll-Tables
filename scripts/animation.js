@@ -1,5 +1,15 @@
+console.log("animation.js has loaded");
+
+
 // Simulating a sliding loot box roll
-async function startAnimatedRoll(rollTable) {
+export function startAnimatedRoll(rollTable) {
+    if (!rollTable) {
+        console.error("No roll table provided!");
+        return;
+    }
+
+    console.log(`Rolling table: ${rollTable.name}`);
+
     let results = rollTable.results.map(r => ({
         img: r.img,
         text: r.text
@@ -8,9 +18,17 @@ async function startAnimatedRoll(rollTable) {
     let winningIndex = Math.floor(Math.random() * results.length);
     let winningResult = results[winningIndex];
 
-    // Open the UI window
+    console.log(`Winning Result: ${winningResult.text}`);
+
     new RollAnimationWindow(results, winningResult).render(true);
 }
+
+// Force register it globally
+window.startAnimatedRoll = startAnimatedRoll;
+console.log("startAnimatedRoll is now available globally.");
+
+
+
 
 // Animation Logic
 class RollAnimationWindow extends Application {
