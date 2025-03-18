@@ -42,16 +42,15 @@ Hooks.on("chatMessage", (chatLog, messageText) => {
 
 // Adds a button inside the roll table UI
 Hooks.on("renderRollTableConfig", (app, html, data) => {
-    // Find the footer area of the settings window
     let footer = html.find(".sheet-footer");
-    if (footer.length === 0) {
-        footer = html; // Fallback if no footer is found
-    }
+    if (footer.length === 0) footer = html; 
 
     let button = $(`<button class="animated-roll-btn">🎰 Animate Roll</button>`);
-    button.on("click", () => startAnimatedRoll(app.object));
+    button.on("click", () => {
+        console.log("Animate Roll button clicked!");
+        window.startAnimatedRoll(app.object); // Use global function
+    });
 
-    // Append the button inside the footer instead of the whole window
     footer.append(button);
 });
 
